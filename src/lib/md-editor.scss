@@ -1,6 +1,7 @@
 .md-editor-container {
   position: relative;
   height: 100%;
+  // overflow-y: auto; // This will enable the main scroll.
   margin-bottom: 15px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   &.fullscreen {
@@ -15,9 +16,12 @@
   }
   &.md-editor-resizable:not(.fullscreen) {
     resize: both;
-    overflow: auto;
+    overflow: hidden;
     display: inline-block;
     width: 100%;
+    .md-layout .editor-container {
+      height: calc(100% - 70px);
+    }
     .md-footer {
       z-index: -1;
     }
@@ -54,6 +58,7 @@
     .editor-container {
       flex: 1;
       display: flex;
+      height: calc(100% - 100px);
       &>div {
         flex: 1;
       }
